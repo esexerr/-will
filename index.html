@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index" />
+    <meta name="theme-color" content="#2B2D31" />
+    <link rel="stylesheet" href="../static/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="https://images-ext-1.discordapp.net/external/gBAbRZDAtd0bFqbpxw7dEvHE2vodlxqsQGvhq5vAWGU/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/999817074920661114/05a1ed21c4ffb21865e1e8ba7189418b.png?format=webp&quality=lossless&width=559&height=559"
+    />
+    <meta name="description" content="the only multipurpose bot you need" />
+    <meta
+      name="keywords"
+      content="wonder, discord, wonder bot, wonderbot, discord bot, discord wonder, wonder discord"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="wonderbot.win" />
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="wonder" />
+    <meta
+      property="og:description"
+      content="the only multipurpose bot you need"
+    />
+    <meta
+      property="og:image"
+      content="https://images-ext-1.discordapp.net/external/gBAbRZDAtd0bFqbpxw7dEvHE2vodlxqsQGvhq5vAWGU/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/999817074920661114/05a1ed21c4ffb21865e1e8ba7189418b.png?format=webp&quality=lossless&width=559&height=559"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <title>wonder</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/whitney-2" />
+    <style>
+      body,
+      h1,
+      h2,
+      h3,
+      p,
+      ul,
+      li {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Whitney", sans-serif;
+        color: #7c4791;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: #000000;
+        position: relative;
+      }
+
+      header {
+        background-color: #000000;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .logo img {
+        width: 250px;
+        height: 60px;
+        margin-bottom: 50px;
+        border-radius: 50%;
+      }
+
+      .logo h1 {
+        font-size: 24px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 80px 0;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+        margin-bottom: 5px;
+        color: #fff;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #aaa;
+      }
+
+      .hero strong {
+        color: #fff;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #1e1f20;
+        color: #fff;
+        font-family: "Whitney", sans-serif;
+        font-size: 1.3rem;
+        line-height: 1.75rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        opacity: 1;
+      }
+
+      .cta-button:hover {
+        background-color: #c0c0c0;
+        color: #1e1f20;
+        filter: none;
+      }
+
+      .centered-image {
+        width: 50px;
+        height: 50px;
+        margin-top: 50px;
+      }
+
+      .bubble-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(151, 151, 151, 0.425);
+        animation: float 5s infinite linear;
+        pointer-events: none;
+      }
+
+      @keyframes float {
+        0% {
+          opacity: 0.7;
+          transform: translate(var(--startX), var(--startY));
+        }
+        100% {
+          opacity: 0.3;
+          transform: translate(var(--endX), var(--endY));
+        }
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(151, 151, 151, 0.425);
+        animation: float var(--duration, 5s) infinite linear;
+      }
+
+      .bot-avatar {
+        width: 250px;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 50%;
+      }
+
+      @media (max-width: 768px) {
+        .hero h2 {
+          font-size: 24px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .cta-button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bubble-container">
+      <script>
+        const minBubbles = 300;
+        const numBubbles = Math.max(minBubbles, 500);
+
+        for (let i = 0; i < numBubbles; i++) {
+          const bubble = document.createElement("div");
+          bubble.className = "bubble";
+          bubble.style.width = Math.random() * 10 + "px";
+          bubble.style.height = bubble.style.width;
+          bubble.style.top =
+            Math.random() *
+              (window.innerHeight - parseFloat(bubble.style.height)) +
+            "px";
+          bubble.style.left =
+            Math.random() *
+              (window.innerWidth - parseFloat(bubble.style.width)) +
+            "px";
+          bubble.style.animationDuration = Math.random() * 75 + 3 + "s";
+          bubble.style.setProperty("--startX", bubble.style.left);
+          bubble.style.setProperty("--startY", bubble.style.top);
+          bubble.style.setProperty(
+            "--endX",
+            Math.random() * window.innerWidth + "px"
+          );
+          bubble.style.setProperty(
+            "--endY",
+            Math.random() * window.innerHeight + "px"
+          );
+          document.querySelector(".bubble-container").appendChild(bubble);
+        }
+      </script>
+    </div>
+
+    <img
+      src="https://images-ext-1.discordapp.net/external/gBAbRZDAtd0bFqbpxw7dEvHE2vodlxqsQGvhq5vAWGU/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/999817074920661114/05a1ed21c4ffb21865e1e8ba7189418b.png?format=webp&quality=lossless&width=559&height=559"
+      alt="Bot Avatar"
+      class="bot-avatar"
+    />
+
+    <section class="hero">
+      <h2
+        style="
+          font-family: 'Whitney', sans-serif;
+          font-size: 4rem;
+          line-height: 1;
+          color: #fff;
+        "
+      >
+        <span class="highlight" data-text="/will">will</span>
+      </h2>
+      <a href="support" class="cta-button"
+        ><i class="fas fa-life-ring"></i> support</a
+      >
+      <a href="invite" class="cta-button"
+        ><i class="fas fa-user-plus"></i> invite</a
+      >
+      <a href="commands" class="cta-button"
+        ><i class="fas fa-terminal"></i> cmds</a
+      >
+    </section>
+  </body>
+</html>
